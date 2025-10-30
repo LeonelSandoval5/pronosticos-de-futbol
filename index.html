@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronósticos de Fútbol y Apuestas Deportivas - Análisis y Predicciones</title>
+    <meta name="description" content="Descubre pronósticos de fútbol precisos y análisis para tus apuestas deportivas. Aporta a nuestra comunidad y maximiza tus oportunidades de ganar.">
+    <meta name="keywords" content="pronósticos de fútbol, apuestas deportivas, análisis de partidos, estadísticas, donaciones, comunidad de apuestas">
+    <meta name="author" content="Leonel Sandoval">
+    <style>
+        body {
+            background-image: url('imagen2.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            margin: 0; 
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Cambiado para apilar elementos verticalmente */
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            max-width: 600px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 6px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 20px;
+            background-color: #004080;
+            color: white;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0066cc;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #003366;
+        }
+
+        .donation-button {
+            background-color: #ff0000; /* Color rojo para el botón */
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 20px; /* Espacio entre el botón y el contenido */
+            transition: background-color 0.3s; /* Transición suave para el hover */
+            margin-top: 20px; /* Margen superior para el botón */
+        }
+
+        .donation-button:hover {
+            background-color: #cc0000; /* Color más oscuro al pasar el mouse */
+        }
+
+        .text-container {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 40px; /* Aumentamos el espaciado interno */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 90%; /* Ajustamos el ancho máximo al 90% del contenedor padre */
+            text-align: left;
+            overflow-y: auto; /* Agregamos scroll vertical si el contenido excede la altura */
+            max-height: 80vh; /* Limitamos la altura máxima al 80% de la altura de la ventana */
+        }
+
+        .text-container2 {
+            background-color: rgba(255, 241, 168, 0.9);
+            padding: 40px; /* Aumentamos el espaciado interno */
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 90%; /* Ajustamos el ancho máximo al 90% del contenedor padre */
+            text-align: left;
+            margin-top: 20px; /* Espacio entre el contenido principal y la sección de donaciones */
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        p {
+            color: #000000; /* Color del texto para párrafos */
+            font-weight: bold;
+        }
+
+        .contact-area {
+            background-color: #e0f7fa;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 800px;
+            width: 90%;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en el botón */
+        }
+
+        code {
+          background-color: #fff9db; /* Fondo amarillo claro que combine con el amarillo del contenedor */
+          padding: 5px; /* Espaciado interno */
+          border-radius: 5px; /* Bordes redondeados */
+          cursor: pointer; /* Cambia el cursor al pasar el mouse */
+          transition: background-color .3s; /* Transición suave para hover */
+      }
+
+      code:hover {
+          background-color:#ffeeba; /* Color de fondo al pasar el mouse (más claro) */
+          box-shadow :02px -1px rgba(255 ,255 ,255 ,1);/* Sombra al pasar el mouse*/
+      }
+
+      .code2{
+        background-color:#d0e7ff;
+      }
+
+      .code2:hover {
+          background-color:#a0c4e1; /* Color de fondo al pasar el mouse (más claro) */
+          box-shadow :02px -1px rgba(255 ,255 ,255 ,1);/* Sombra al pasar el mouse*/
+      }
+      
+      @media (max-width :600px) {
+          .text-container , .text-container2 , .contact-area {
+              padding :20px ;/* Reduce el padding en pantallas pequeñas*/
+              overflow-x:auto ;/* Permite desplazamiento horizontal en pantallas pequeñas*/
+              word-wrap :break-word ;/* Rompe palabras largas para evitar desbordamientos*/
+              white-space :normal ;/* Permite que los textos largos se dividan en múltiples líneas*/
+              font-size :smaller ;/* Reduce el tamaño de fuente en pantallas pequeñas*/
+          }
+
+          h1 {
+              font-size :1.5em ;/* Ajusta el tamaño del encabezado*/
+          }
+
+          h2 {
+              font-size :1.2em ;/* Ajusta el tamaño de los subencabezados*/
+          }
+
+      }
+
+.email-link {
+    background-color: rgba(200, 200, 200, 0.9); /* Color de fondo gris más oscuro */
+    padding: 1px 2px; /* Ajustamos el espaciado alrededor del texto para hacerlo más estrecho */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Transición suave para hover */
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3); /* Sombreado inicial más sutil y estrecho */
+}
+
+.email-link:hover {
+    background-color: rgba(150, 150, 150, 0.9); /* Color de fondo más oscuro al pasar el mouse */
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.5); /* Sombreado más intenso al hacer hover */
+}
+    </style>
+</head>
+<body>
+    <a class="donation-button">¡Dona ahora!</a>
+    <div class="text-container">
+        <h1>Predicción de Ganador de Fútbol</h1>
+
+<form id="formPrediccion">
+  <fieldset>
+    <legend>Resultados enfrentamientos directos (más reciente primero)</legend>
+    <label for="directo1">Resultado 1</label>
+    <select id="directo1" required>
+      <option value="">Selecciona resultado</option>
+      <option value="3">Local gana</option>
+      <option value="1">Empate</option>
+      <option value="0">Visitante gana</option>
+    </select>
+    <label for="directo2">Resultado 2</label>
+    <select id="directo2" required>
+      <option value="">Selecciona resultado</option>
+      <option value="3">Local gana</option>
+      <option value="1">Empate</option>
+      <option value="0">Visitante gana</option>
+    </select>
+    <label for="directo3">Resultado 3</label>
+    <select id="directo3" required>
+      <option value="">Selecciona resultado</option>
+      <option value="3">Local gana</option>
+      <option value="1">Empate</option>
+      <option value="0">Visitante gana</option>
+    </select>
+    <label for="directo4">Resultado 4</label>
+    <select id="directo4" required>
+      <option value="">Selecciona resultado</option>
+      <option value="3">Local gana</option>
+      <option value="1">Empate</option>
+      <option value="0">Visitante gana</option>
+    </select>
+    <label for="directo5">Resultado 5</label>
+    <select id="directo5" required>
+      <option value="">Selecciona resultado</option>
+      <option value="3">Local gana</option>
+      <option value="1">Empate</option>
+      <option value="0">Visitante gana</option>
+    </select>
+    <label for="directo6">Resultado 6</label>
+    <select id="directo6" required>
+      <option value="">Selecciona resultado</option>
+      <option value="3">Local gana</option>
+      <option value="1">Empate</option>
+      <option value="0">Visitante gana</option>
+    </select>
+  </fieldset>
+
+  <fieldset>
+    <legend>Resultados individuales equipo local (más reciente primero)</legend>
+    <label for="local1">Resultado 1</label>
+    <select id="local1" required>
+      <option value="">Selecciona resultado</option>
+      <option value="3">Victoria</option>
+      <option value="1">Empate</option>
+      <option value="0">Derrota</option>
+    </select>
+    <label for="local2">Resultado 2</label>
+    <select id="local2" required>
+      <option value="">Selecciona resultado</option>
+      <option value="3">Victoria</option>
+      <option value="1">Empate</option>
+      <option value="0">Derrota</option>
+    </select>
+    <label for="local3">Resultado 3</label>
+    <select id="local3" required>
+      <option value="">Selecciona resultado</option>
+      <option value="3">Victoria</option>
+      <option value="1">Empate</option>
+      <option value="0">Derrota</option>
+    </select>
+    <label for="local4">Resultado 4</label>
+    <select id="local4" required>
+      <option value="">Selecciona resultado</option>
+      <option value="3">Victoria</option>
+      <option value="1">Empate</option>
+      <option value="0">Derrota</option>
+    </select>
+    <label for="local5">Resultado 5</label>
+    <select id="local5" required>
+      <option value="">Selecciona resultado</option>
+      <option value="3">Victoria</option>
+      <option value="1">Empate</option>
+      <option value="0">Derrota</option>
+    </select>
+    <label for="local6">Resultado 6</label>
+    <select id="local6" required>
+      <option value="">Selecciona resultado</option>
+      <option value="3">Victoria</option>
+      <option value="1">Empate</option>
+      <option value="0">Derrota</option>
+    </select>
+  </fieldset>
+
+  <fieldset>
+    <legend>Resultados individuales equipo visitante (más reciente primero)</legend>
+    <label for="visitante1">Resultado 1</label>
+    <select id="visitante1" required>
+      <option value="">Selecciona resultado</option>
+      <option value="3">Victoria</option>
+      <option value="1">Empate</option>
+      <option value="0">Derrota</option>
+    </select>
+    <label for="visitante2">Resultado 2</label>
+    <select id="visitante2" required>
+      <option value="">Selecciona resultado</option>
+      <option value="3">Victoria</option>
+      <option value="1">Empate</option>
+      <option value="0">Derrota</option>
+    </select>
+    <label for="visitante3">Resultado 3</label>
+    <select id="visitante3" required>
+      <option value="">Selecciona resultado</option>
+      <option value="3">Victoria</option>
+      <option value="1">Empate</option>
+      <option value="0">Derrota</option>
+    </select>
+    <label for="visitante4">Resultado 4</label>
+    <select id="visitante4" required>
+      <option value="">Selecciona resultado</option>
+      <option value="3">Victoria</option>
+      <option value="1">Empate</option>
+      <option value="0">Derrota</option>
+    </select>
+    <label for="visitante5">Resultado 5</label>
+    <select id="visitante5" required>
+      <option value="">Selecciona resultado</option>
+      <option value="3">Victoria</option>
+      <option value="1">Empate</option>
+      <option value="0">Derrota</option>
+    </select>
+    <label for="visitante6">Resultado 6</label>
+    <select id="visitante6" required>
+      <option value="">Selecciona resultado</option>
+      <option value="3">Victoria</option>
+      <option value="1">Empate</option>
+      <option value="0">Derrota</option>
+    </select>
+  </fieldset>
+
+  <button type="button" onclick="predecir()">Predecir Ganador</button>
+</form>
+
+<div id="resultado"></div>
+
+        
+    
+    
+
+   <div class="text-container2" id="donation-section">
+       <h3 style="color:red;">¡Apoya Nuestro Trabajo y Ganemos Juntos! Si te han gustado mis pronósticos y deseas apoyar mi labor en el mundo de las apuestas deportivas, considera hacer una donación. Tu contribución no solo me ayudará a seguir ofreciendo análisis y pronósticos precisos, sino que también te permitirá formar parte de una comunidad donde todos podemos ganar. Juntos, podemos maximizar nuestras oportunidades y hacer que cada apuesta cuente. ¡Gracias por tu apoyo!</h3>
+
+       <!-- Direcciones con código para facilitar copia -->
+       <h3>Pasarelas de Donación</h3>
+       <p><strong>Litecoin (LTC):</strong> <code onclick="copyToClipboard('LWNCqFuBYG66PFSG58TpYSp7SLqJk61mgq')">LWNCqFuBYG66PFSG58TpYSp7SLqJk61mgq</code></p>
+       <p><strong>USD Coin (USDC):</strong> <code onclick="copyToClipboard('0xa9685cc770c81710aed1a11b89f0dafc1e564d1d')">0xa9685cc770c81710aed1a11b89f0dafc1e564d1d</code></p>
+       <p><strong>Ethereum (ETH):</strong> <code onclick="copyToClipboard('0xa9685cc770c81710aed1a11b89f0dafc1e564d1d')">0xa9685cc770c81710aed1a11b89f0dafc1e564d1d</code></p>
+       <p><strong>Bitcoin (BTC):</strong> <code onclick="copyToClipboard('1BJ5r7Jc98H96T5L5J7QPaqkwAahaTNR6d')">1BJ5r7Jc98H96T5L5J7QPaqkwAahaTNR6d</code></p>
+
+       <!-- Correo electrónico -->
+       <div class="contact-area">
+           <h2>Creado por Leonel Sandoval</h2>
+           <p>Si deseas un sitio web similar o necesitas ayuda con el tuyo, ¡no dudes en contactarme!</p>
+           <!-- Correo restaurado aquí -->
+           <!-- Cambiamos solo el fondo del código del correo -->
+          <!-- <p>Email:<code style="background-color:#d0e7ff;" onclick="copyToClipboard('elmatematicofeliz@gmail.com')">elmatematicofeliz@gmail.com</code></p>-->
+          <p>Email: <span class="code2" onclick="copyToClipboard('elmatematicofeliz@gmail.com')">elmatematicofeliz@gmail.com</span></p>
+
+       </div>
+
+   </div>
+
+   <!-- Script para copiar al portapapeles -->
+   <script>
+      function copyToClipboard(text) {
+          navigator.clipboard.writeText(text).then(function() {
+              alert("Texto copiado al portapapeles!");
+          }, function(err) {
+              console.error('Error al copiar texto:', err);
+          });
+      }
+
+      document.querySelector('.donation-button').addEventListener('click', function() {
+          document.querySelector('#donation-section').scrollIntoView({ behavior:'smooth' });
+      });
+
+      function predecir() {
+         // Lista de IDs de todos los select
+  const idsSelects = [
+    "directo1", "directo2", "directo3", "directo4", "directo5", "directo6",
+    "local1", "local2", "local3", "local4", "local5", "local6",
+    "visitante1", "visitante2", "visitante3", "visitante4", "visitante5", "visitante6"
+  ];
+
+  // Verificar si todos los campos están completos
+  for (let id of idsSelects) {
+    const valor = document.getElementById(id).value;
+    if (valor === "") {
+      alert("Faltan elementos por introducir");
+      document.getElementById(id).focus();
+      return; // Detener la función si falta algún valor
+    }
+  }
+
+    // Factores para enfrentamientos directos
+    const factoresDirecto = [2, 1.8, 1.6, 1.4, 1.2, 1];
+    // Factores para resultados individuales
+    const factoresIndividual = [1.5, 1.4, 1.3, 1.2, 1.1, 1];
+
+    // Obtener resultados de enfrentamientos directos
+    let directos = [];
+    for (let i = 1; i <= 6; i++) {
+      directos.push(parseFloat(document.getElementById("directo" + i).value));
+    }
+
+    // Calcular puntaje en enfrentamientos directos para local y visitante
+    let puntosLocalDirecto = 0;
+    let puntosVisitanteDirecto = 0;
+    for (let i = 0; i < 6; i++) {
+      if (directos[i] === 3) puntosLocalDirecto += 3 * factoresDirecto[i];
+      else if (directos[i] === 1) {
+        puntosLocalDirecto += 1 * factoresDirecto[i];
+        puntosVisitanteDirecto += 1 * factoresDirecto[i];
+      } else if (directos[i] === 0) puntosVisitanteDirecto += 3 * factoresDirecto[i];
+    }
+
+    // Obtener resultados individuales equipo local
+    let local = [];
+    for (let i = 1; i <= 6; i++) {
+      local.push(parseFloat(document.getElementById("local" + i).value));
+    }
+
+    // Obtener resultados individuales equipo visitante
+    let visitante = [];
+    for (let i = 1; i <= 6; i++) {
+      visitante.push(parseFloat(document.getElementById("visitante" + i).value));
+    }
+
+    // Calcular puntajes individuales
+    let puntosLocalIndividual = 0;
+    let puntosVisitanteIndividual = 0;
+    for (let i = 0; i < 6; i++) {
+      puntosLocalIndividual += local[i] * factoresIndividual[i];
+      puntosVisitanteIndividual += visitante[i] * factoresIndividual[i];
+    }
+
+    // Sumar puntajes totales
+    let totalLocal = puntosLocalDirecto + puntosLocalIndividual;
+    let totalVisitante = puntosVisitanteDirecto + puntosVisitanteIndividual;
+
+    // Calcular diferencia
+    let diferencia = Math.abs(totalLocal - totalVisitante);
+
+    let mensaje = "";
+    if (totalLocal === totalVisitante) {
+      mensaje = "Apostar por Local o Empate (empate técnico)";
+    } else if (diferencia > 2.5) {
+      mensaje = totalLocal > totalVisitante ? "Apostar por Local" : "Apostar por Visitante";
+    } else {
+      mensaje = totalLocal > totalVisitante ? "Apostar por Local o Empate" : "Apostar por Visitante o Empate";
+    }
+
+    const resultado = document.getElementById("resultado");
+    resultado.textContent = `Resultado de predicción: ${mensaje}`
+
+    // Scroll suave al centro vertical del elemento resultado
+    resultado.scrollIntoView({ behavior: "smooth", block: "center" });
+
+
+  }
+   </script>
+</body>
+</html>
+
+
