@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://leonelsandoval5.github.io/pronosticos-de-futbol/sitemap.xml
